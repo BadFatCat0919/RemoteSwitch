@@ -9,3 +9,10 @@
  * of this license document, but changing it is not allowed.
  * 
  */
+
+#ifndef __OS_APP_H__
+#define __OS_APP_H__
+
+
+
+#endif // __OS_APP_H__

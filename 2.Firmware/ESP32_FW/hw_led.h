@@ -9,3 +9,10 @@
  * of this license document, but changing it is not allowed.
  * 
  */
+
+#ifndef __HW_LED_H__
+#define __HW_LED_H__
+
+
+
+#endif // __HW_LED_H__
