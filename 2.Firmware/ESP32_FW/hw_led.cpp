@@ -1,7 +1,7 @@
 /**
  * @file hw_led.cpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief hw_led类的实现
+ * @brief 硬件层HW_LED类的实现
  * @date 2021-01-23
  * 
  * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>

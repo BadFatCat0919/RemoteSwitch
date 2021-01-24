@@ -10,22 +10,22 @@
  * 
  */
 
-#include "hw_includes.h"
+#include "hw_api.h"
+#include "os_api.h"
 
 /**
  * @brief 主循环开始执行前仅被调用一次的代码。这里用于软硬件初始化
- * 
  */
-void setup(void)
+void setup()
 {
-  
+    HW_Init();
+    OS_Init();
 }
 
 /**
  * @brief 主循环。程序都在Task中执行，这里置空
- * 
  */
-void loop(void)
+void loop()
 {
   // empty
 }

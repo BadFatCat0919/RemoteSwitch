@@ -1,7 +1,7 @@
 /**
  * @file os_includes.h
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 操作系统相关代码的头文件
+ * @brief 操作系统层的总头文件
  * @date 2021-01-23
  * 
  * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -13,6 +13,8 @@
 #ifndef __OS_INCLUDES_H__
 #define __OS_INCLUDES_H__
 
+#include <stdint.h>
+#include "os_api.h"
 #include "os_app.h"
 
 #endif // __OS_INCLUDES_H__
