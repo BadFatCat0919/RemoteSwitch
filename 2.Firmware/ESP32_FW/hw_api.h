@@ -13,10 +13,12 @@
 #ifndef __HW_API_H__
 #define __HW_API_H__
 
-#include "hw_gpio.h"
-#include "hw_led.h"
+#include "hw_gpio.hpp"
+#include "hw_led.hpp"
+#include "hw_key.hpp"
 
 extern HW_LED LED_Board;
+extern HW_KEY KEY_Board;
 
 /**
  * @brief 硬件层初始化

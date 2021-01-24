@@ -10,8 +10,8 @@
  * 
  */
 
-#include "os_includes.h"
 #include "hw_api.h"
+#include "os_app.h"
 #include "FreeRTOS.h"
 
 /**

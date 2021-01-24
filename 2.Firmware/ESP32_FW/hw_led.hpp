@@ -1,7 +1,7 @@
 /**
- * @file hw_led.h
+ * @file hw_led.hpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 硬件层HW_LED类的声明
+ * @brief 硬件层 HW_LED 类
  * @date 2021-01-23
  * 
  * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -14,7 +14,7 @@
 #define __HW_LED_H__
 
 #include <stdint.h>
-#include "hw_gpio.h"
+#include "hw_gpio.hpp"
 
 /**
  * @brief 硬件层的 HW_LED 类
@@ -51,6 +51,17 @@ public:
     }
 
     /**
+     * @brief 读取LED灯状态
+     * 
+     * @return true 灯亮
+     * @return false 灯灭
+     */
+    bool status()
+    {
+        return _gpio.status() == _onLevel;
+    }
+
+    /**
      * @brief 打开LED
      * 
      * @return hw_led& 
@@ -73,6 +84,36 @@ public:
     }
 
     /**
+     * @brief 设置LED灯状态
+     * 
+     * @param newStatus 将要设置的新状态
+     * @return HW_LED& 
+     */
+    HW_LED& status(bool newStatus)
+    {
+        if(newStatus)
+        {
+            on();
+        }
+        else
+        {
+            off();
+        }
+        return *this;
+    }
+
+    /**
+     * @brief 赋值号重载为设置LED灯状态
+     * 
+     * @param newStatus 将要设置的新状态
+     * @return HW_LED& 
+     */
+    HW_LED& operator=(bool newStatus)
+    {
+        return status(newStatus);
+    }
+
+    /**
      * @brief 翻转LED状态
      * 
      * @return HW_LED& 
@@ -87,6 +128,5 @@ protected:
     HW_GPIO _gpio;
     bool _onLevel;
 };
-
 
 #endif // __HW_LED_H__

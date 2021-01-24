@@ -10,9 +10,10 @@
  * 
  */
 
-#include "hw_includes.h"
+#include "hw_api.h"
 
 HW_LED LED_Board(2, true, false);
+HW_KEY KEY_Board(0, false);
 
 /**
  * @brief 硬件层初始化
@@ -21,4 +22,5 @@ HW_LED LED_Board(2, true, false);
 void HW_Init(void)
 {
     LED_Board.init();
+    KEY_Board.init();
 }

@@ -23,7 +23,6 @@ void TaskBlink(void *pvParameters)
 
     for (;;)
     {
-        LED_Board.reverse();
-        vTaskDelay(500);
+        LED_Board = KEY_Board.status();
     }
 }
