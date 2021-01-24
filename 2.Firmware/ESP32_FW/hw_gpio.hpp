@@ -1,7 +1,7 @@
 /**
- * @file hw_gpio.h
+ * @file hw_gpio.hpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 硬件层 HW_GPIO 类的声明
+ * @brief 硬件层 HW_GPIO 类
  * @date 2021-01-24
  * 
  * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -26,9 +26,9 @@ public:
     /**
      * @brief 创建一个新的 HW_GPIO 对象
      * 
-     * @param pin 
-     * @param mode 
-     * @param status 
+     * @param pin 使用的引脚
+     * @param mode 引脚模式
+     * @param status 默认电平状态
      */
     HW_GPIO(uint8_t pin, uint8_t mode, bool status = false):
     _pin(pin), _mode(mode), _status(status){}
