@@ -17,21 +17,24 @@
 #include "hw_gpio.h"
 
 /**
- * @brief 硬件层的LED类
+ * @brief 硬件层的 HW_LED 类
+ * 
  */
 class HW_LED
 {
 public:
     /**
-     * @brief 创建一个新的HW_LED对象
+     * @brief 创建一个新的 HW_LED 对象
      * 
-     * @param pin LED使用的GPIO，缺省为2
+     * @param pin 使用的gpio引脚，缺省为板载的LED
+     * @param onLevel LED点亮时的电平
+     * @param defaultStatus LED初始化后的默认状态
      */
     HW_LED(uint8_t pin = 2, bool onLevel = true, bool defaultStatus = false):
         _gpio(pin, OUTPUT, defaultStatus ? onLevel : !onLevel), _onLevel(onLevel){}
 
     /**
-     * @brief 销毁一个已创建的HW_LED对象
+     * @brief 销毁一个已创建的 HW_LED 对象
      * 
      */
     ~HW_LED() = default;

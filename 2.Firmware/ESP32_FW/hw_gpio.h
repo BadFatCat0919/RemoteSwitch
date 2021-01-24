@@ -1,7 +1,7 @@
 /**
  * @file hw_gpio.h
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 硬件层HW_GPIO类的声明
+ * @brief 硬件层 HW_GPIO 类的声明
  * @date 2021-01-24
  * 
  * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
@@ -17,7 +17,8 @@
 #include "esp32-hal-gpio.h"
 
 /**
- * @brief 硬件层的GPIO类
+ * @brief 硬件层的 HW_GPIO 类
+ * 
  */
 class HW_GPIO
 {
@@ -34,6 +35,7 @@ public:
     
     /**
      * @brief 销毁一个已创建的 HW_GPIO 对象
+     * 
      */
     ~HW_GPIO() = default;
 
@@ -85,6 +87,7 @@ public:
 
     /**
      * @brief 翻转电平
+     * 
      */
     void reverse()
     {
