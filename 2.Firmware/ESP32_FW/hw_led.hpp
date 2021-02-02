@@ -3,11 +3,6 @@
  * @author BadFatCat0919 (543015378@qq.com)
  * @brief 硬件层 HW_LED 类
  * @date 2021-01-23
- * 
- * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
- * Everyone is permitted to copy and distribute verbatim copies
- * of this license document, but changing it is not allowed.
- * 
  */
 
 #ifndef __HW_LED_H__
@@ -18,14 +13,12 @@
 
 /**
  * @brief 硬件层的 HW_LED 类
- * 
  */
 class HW_LED
 {
 public:
     /**
      * @brief 创建一个新的 HW_LED 对象
-     * 
      * @param pin 使用的gpio引脚，缺省为板载的LED
      * @param onLevel LED点亮时的电平
      * @param defaultStatus LED初始化后的默认状态
@@ -35,13 +28,11 @@ public:
 
     /**
      * @brief 销毁一个已创建的 HW_LED 对象
-     * 
      */
     ~HW_LED() = default;
 
     /**
      * @brief 初始化
-     * 
      * @return HW_LED& 
      */
     HW_LED& init()
@@ -52,7 +43,6 @@ public:
 
     /**
      * @brief 读取LED灯状态
-     * 
      * @return true 灯亮
      * @return false 灯灭
      */
@@ -63,7 +53,6 @@ public:
 
     /**
      * @brief 打开LED
-     * 
      * @return hw_led& 
      */
     HW_LED& on()
@@ -74,7 +63,6 @@ public:
 
     /**
      * @brief 关闭LED
-     * 
      * @return HW_LED& 
      */
     HW_LED& off()
@@ -85,7 +73,6 @@ public:
 
     /**
      * @brief 设置LED灯状态
-     * 
      * @param newStatus 将要设置的新状态
      * @return HW_LED& 
      */
@@ -104,7 +91,6 @@ public:
 
     /**
      * @brief 赋值号重载为设置LED灯状态
-     * 
      * @param newStatus 将要设置的新状态
      * @return HW_LED& 
      */
@@ -115,7 +101,6 @@ public:
 
     /**
      * @brief 翻转LED状态
-     * 
      * @return HW_LED& 
      */
     HW_LED& reverse()

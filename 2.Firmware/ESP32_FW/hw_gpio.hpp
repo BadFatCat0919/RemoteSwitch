@@ -3,11 +3,6 @@
  * @author BadFatCat0919 (543015378@qq.com)
  * @brief 硬件层 HW_GPIO 类
  * @date 2021-01-24
- * 
- * Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
- * Everyone is permitted to copy and distribute verbatim copies
- * of this license document, but changing it is not allowed.
- * 
  */
 
 #ifndef __HW_GPIO_H__
@@ -18,14 +13,12 @@
 
 /**
  * @brief 硬件层的 HW_GPIO 类
- * 
  */
 class HW_GPIO
 {
 public:
     /**
      * @brief 创建一个新的 HW_GPIO 对象
-     * 
      * @param pin 使用的引脚
      * @param mode 引脚模式
      * @param status 默认电平状态
@@ -35,13 +28,11 @@ public:
     
     /**
      * @brief 销毁一个已创建的 HW_GPIO 对象
-     * 
      */
     ~HW_GPIO() = default;
 
     /**
      * @brief 初始化
-     * 
      * @return HW_GPIO& 
      */
     HW_GPIO& init()
@@ -56,7 +47,6 @@ public:
     
     /**
      * @brief 读取当前电平状态
-     * 
      * @return true 当前电平为高电平
      * @return false 当前电平为低电平
      */
@@ -71,7 +61,6 @@ public:
 
     /**
      * @brief 设置新电平
-     * 
      * @param newStatus 
      * @return HW_GPIO& 
      */
@@ -87,7 +76,6 @@ public:
 
     /**
      * @brief 翻转电平
-     * 
      */
     void reverse()
     {
