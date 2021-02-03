@@ -34,9 +34,8 @@ void setup()
  */
 void loop()
 {
-  if(Key_Board.status())
-  { 
-    data_setUpdateFlag(true);
-    data_save();
-  }
+    if(Key_Board.status())
+    { 
+        enter_OTA_status();
+    }
 }

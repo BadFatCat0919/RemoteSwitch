@@ -6,7 +6,6 @@
  */
 
 #include "fw_api.h"
-#include "hw_api.h"
 
 /**
  * @brief 固件层初始化
@@ -22,12 +21,17 @@ int fw_init(void)
             ret = -1;
             break;
         }
-        data_load();
+
         if(data_getUpdateFlag())
         {
-            LED_Board.on();
             data_setUpdateFlag(false);
             data_save();
+            if(OTA_update_init())
+            {
+                ret = -1;
+                break;
+            }
+            OTA_update(); // 函数中含有while(true)
         }
     }while(false);
 
