@@ -6,20 +6,27 @@
  */
 
 #include "hw_api.h"
+#include "fw_api.h"
 #include "os_api.h"
-#include "app_api.h"
-#include "app_data.h"
+
 /**
  * @brief 主循环开始执行前仅被调用一次的代码。这里用于软硬件初始化
  */
 void setup()
 {
-    Serial.begin(115200);
-    hw_init();
-    app_init();
-            data_setUpdateFlag(true);
-            data_save();
-    // os_init();
+    int ret = 0;
+    if(ret = hw_init())
+    {
+
+    }
+    if(ret = fw_init())
+    {
+
+    }
+    if(ret = os_init())
+    {
+
+    }
 }
 
 /**
@@ -27,5 +34,9 @@ void setup()
  */
 void loop()
 {
-  // empty
+  if(Key_Board.status())
+  { 
+    data_setUpdateFlag(true);
+    data_save();
+  }
 }

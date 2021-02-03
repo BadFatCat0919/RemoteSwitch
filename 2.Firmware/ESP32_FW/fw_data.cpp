@@ -1,11 +1,11 @@
 /**
- * @file app_data.cpp
+ * @file fw_data.cpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 用户层的数据存储接口实现
+ * @brief 固件层的数据存储相关接口实现
  * @date 2021-02-03
  */
 
-#include "app_data.h"
+#include "fw_data.h"
 #include "EEPROM.h"
 
 static const size_t DATA_SIZE = 1;

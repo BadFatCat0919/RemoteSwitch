@@ -1,7 +1,7 @@
 /**
- * @file app_data.h
+ * @file fw_data.h
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 用户层的数据存储接口声明
+ * @brief 固件层的数据存储相关接口声明
  * @date 2021-02-03
  */
 
