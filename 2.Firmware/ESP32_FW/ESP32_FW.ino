@@ -7,6 +7,7 @@
 
 #include "hw_api.h"
 #include "os_api.h"
+#include "app_api.h"
 
 /**
  * @brief 主循环开始执行前仅被调用一次的代码。这里用于软硬件初始化
@@ -14,6 +15,7 @@
 void setup()
 {
     HW_Init();
+    APP_Init();
     OS_Init();
 }
 
