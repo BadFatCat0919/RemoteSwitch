@@ -6,7 +6,7 @@
  */
 
 #include "hw_api.h"
-#include "os_app.h"
+#include "os_task.h"
 #include "FreeRTOS.h"
 
 /**
