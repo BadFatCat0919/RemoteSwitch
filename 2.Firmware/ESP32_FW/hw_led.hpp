@@ -5,8 +5,8 @@
  * @date 2021-01-23
  */
 
-#ifndef __HW_LED_H__
-#define __HW_LED_H__
+#ifndef __HW_LED_HPP__
+#define __HW_LED_HPP__
 
 #include <stdint.h>
 #include "hw_gpio.hpp"
@@ -114,4 +114,4 @@ protected:
     bool _onLevel;
 };
 
-#endif // __HW_LED_H__
+#endif // __HW_LED_HPP__

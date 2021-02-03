@@ -5,8 +5,8 @@
  * @date 2021-01-24
  */
 
-#ifndef __HW_GPIO_H__
-#define __HW_GPIO_H__
+#ifndef __HW_GPIO_HPP__
+#define __HW_GPIO_HPP__
 
 #include <stdint.h>
 #include "esp32-hal-gpio.h"
@@ -90,4 +90,4 @@ protected:
     uint8_t _pin, _mode, _status;
 };
 
-#endif // __HW_GPIO_H__
+#endif // __HW_GPIO_HPP__

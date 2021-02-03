@@ -5,8 +5,8 @@
  * @date 2021-01-24
  */
 
-#ifndef __HW_KEY_H__
-#define __HW_KEY_H__
+#ifndef __HW_KEY_HPP__
+#define __HW_KEY_HPP__
 
 #include <stdint.h>
 #include "hw_gpio.hpp"
@@ -55,4 +55,4 @@ protected:
     bool _pressLevel;
 };
 
-#endif // __HW_KEY_H__
+#endif // __HW_KEY_HPP__
