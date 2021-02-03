@@ -8,13 +8,13 @@
 #include "hw_api.h"
 
 HW_LED LED_Board(2, true, false);
-HW_Key KEY_Board(0, false);
+HW_Key Key_Board(0, false);
 
 /**
  * @brief 硬件层初始化
  */
-void HW_Init(void)
+void hw_init(void)
 {
     LED_Board.init();
-    KEY_Board.init();
+    Key_Board.init();
 }

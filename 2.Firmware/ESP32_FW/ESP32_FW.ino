@@ -14,9 +14,9 @@
  */
 void setup()
 {
-    HW_Init();
-    APP_Init();
-    OS_Init();
+    hw_init();
+    app_init();
+    os_init();
 }
 
 /**

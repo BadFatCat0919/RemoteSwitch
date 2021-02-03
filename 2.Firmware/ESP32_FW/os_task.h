@@ -8,6 +8,6 @@
 #ifndef __OS_TASK_H__
 #define __OS_TASK_H__
 
-void TaskBlink(void *pvParameters);
+void task_blink(void *pvParameters);
 
 #endif // __OS_TASK_H__

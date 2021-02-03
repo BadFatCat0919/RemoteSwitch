@@ -8,6 +8,6 @@
 #ifndef __OS_API_H__
 #define __OS_API_H__
 
-void OS_Init(void);
+void os_init(void);
 
 #endif // __OS_APP_H__

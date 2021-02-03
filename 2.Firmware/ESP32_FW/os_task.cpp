@@ -5,18 +5,19 @@
  * @date 2021-01-23
  */
 
+#include "os_task.h"
 #include "hw_api.h"
 
 /**
  * @brief 点灯测试任务
  * @param pvParameters 
  */
-void TaskBlink(void *pvParameters)
+void task_blink(void *pvParameters)
 {
     (void) pvParameters;
 
     for (;;)
     {
-        LED_Board = KEY_Board.status();
+        LED_Board = Key_Board.status();
     }
 }

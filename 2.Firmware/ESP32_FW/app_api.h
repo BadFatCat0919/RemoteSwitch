@@ -8,6 +8,6 @@
 #ifndef __APP_API_H__
 #define __APP_API_H__
 
-void APP_Init(void);
+void app_init(void);
 
 #endif // __APP_API_H__

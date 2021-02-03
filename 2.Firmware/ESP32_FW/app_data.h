@@ -8,6 +8,6 @@
 #ifndef __APP_DATA_H__
 #define __APP_DATA_H__
 
-
+bool data_getUpdateFlag(void);
 
 #endif // __APP_DATA_H__
