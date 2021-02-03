@@ -12,15 +12,20 @@
 
 /**
  * @brief 操作系统初始化。创建各个任务并启动调度器
+ * @return 成功为0，否则为错误码
  */
-void os_init(void)
+int os_init(void)
 {
-  xTaskCreatePinnedToCore(
-    task_blink
-    ,  "TaskBlink"
-    ,  1024
-    ,  NULL
-    ,  1
-    ,  NULL 
-    ,  APP_CPU_NUM);
+	int ret = 0;
+
+	xTaskCreatePinnedToCore(
+	task_blink
+		,  "TaskBlink"
+		,  1024
+		,  NULL
+		,  1
+		,  NULL 
+		,  APP_CPU_NUM);
+
+	return ret;
 }

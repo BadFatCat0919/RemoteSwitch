@@ -15,6 +15,6 @@
 extern HW_LED LED_Board;
 extern HW_Key Key_Board;
 
-void hw_init(void);
+int hw_init(void);
 
 #endif // __HW_API_H__

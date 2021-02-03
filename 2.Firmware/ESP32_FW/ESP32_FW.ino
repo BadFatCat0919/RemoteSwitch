@@ -8,15 +8,18 @@
 #include "hw_api.h"
 #include "os_api.h"
 #include "app_api.h"
-
+#include "app_data.h"
 /**
  * @brief 主循环开始执行前仅被调用一次的代码。这里用于软硬件初始化
  */
 void setup()
 {
+    Serial.begin(115200);
     hw_init();
     app_init();
-    os_init();
+            data_setUpdateFlag(true);
+            data_save();
+    // os_init();
 }
 
 /**

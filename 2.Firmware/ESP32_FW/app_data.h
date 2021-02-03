@@ -8,6 +8,10 @@
 #ifndef __APP_DATA_H__
 #define __APP_DATA_H__
 
+int data_init(void);
+int data_save(void);
+void data_load(void);
 bool data_getUpdateFlag(void);
+bool data_setUpdateFlag(bool status);
 
 #endif // __APP_DATA_H__

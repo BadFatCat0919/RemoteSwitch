@@ -12,9 +12,14 @@ HW_Key Key_Board(0, false);
 
 /**
  * @brief 硬件层初始化
+ * @return 成功为0，否则为错误码
  */
-void hw_init(void)
+int hw_init(void)
 {
+    int ret = 0;
+    
     LED_Board.init();
     Key_Board.init();
+
+    return ret;
 }

@@ -6,6 +6,57 @@
  */
 
 #include "app_data.h"
+#include "EEPROM.h"
+
+static const size_t DATA_SIZE = 1;
+static EEPROMClass dataVessel("eeprom0", DATA_SIZE);
+static uint8_t data[DATA_SIZE];
+uint8_t &updateFlag = data[0];
+
+/**
+ * @brief 数据初始化
+ * @return 成功为0，否则为错误码
+ */
+int data_init(void)
+{
+    int ret = 0;
+
+    do{
+        if(!dataVessel.begin(dataVessel.length()))
+        {
+            ret = -1;
+            break;
+        }
+        else
+        {
+            data_load();
+        }
+    }while(false);
+
+    return ret;
+}
+
+/**
+ * @brief 将数据写入存储器
+ * @return 成功为0，否则为错误码
+ */
+int data_save(void)
+{
+    dataVessel.put(0, data);
+    if(!dataVessel.commit())
+    {
+        return -1;
+    }
+    return 0;
+}
+
+/**
+ * @brief 将数据从存储器读出
+ */
+void data_load(void)
+{
+    dataVessel.get(0, data);
+}
 
 /**
  * @brief 获取升级标志位
@@ -14,5 +65,15 @@
  */
 bool data_getUpdateFlag(void)
 {
-    return false;
+    return updateFlag;
+}
+
+/**
+ * @brief 设置升级标志位
+ * @return true 需要升级
+ * @return false 不需要升级
+ */
+bool data_setUpdateFlag(bool status)
+{
+    return (updateFlag = status);
 }
