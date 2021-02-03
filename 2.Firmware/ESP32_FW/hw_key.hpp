@@ -1,7 +1,7 @@
 /**
  * @file hw_key.hpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 硬件层 HW_KEY 类
+ * @brief 硬件层 HW_Key 类
  * @date 2021-01-24
  */
 
@@ -14,27 +14,27 @@
 /**
  * @brief 
  */
-class HW_KEY
+class HW_Key
 {
 public:
     /**
-     * @brief 创建一个新的 HW_KEY 对象
+     * @brief 创建一个新的 HW_Key 对象
      * @param pin 使用的gpio引脚，缺省为板载的按键
      * @param pressLevel 按键按下时的电平
      */
-    HW_KEY(uint8_t pin = 0, bool pressLevel = false):
+    HW_Key(uint8_t pin = 0, bool pressLevel = false):
         _gpio(pin, pressLevel ? INPUT_PULLDOWN : INPUT_PULLUP), _pressLevel(pressLevel){}
 
     /**
-     * @brief 销毁一个已创建的 HW_KEY 对象
+     * @brief 销毁一个已创建的 HW_Key 对象
      */
-    ~HW_KEY() = default;
+    ~HW_Key() = default;
 
     /**
      * @brief 初始化
      * @return HW_LED& 
      */
-    HW_KEY& init()
+    HW_Key& init()
     {
         _gpio.init();
         return *this;

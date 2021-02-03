@@ -13,7 +13,7 @@
 #include "hw_key.hpp"
 
 extern HW_LED LED_Board;
-extern HW_KEY KEY_Board;
+extern HW_Key KEY_Board;
 
 void HW_Init(void);
 
