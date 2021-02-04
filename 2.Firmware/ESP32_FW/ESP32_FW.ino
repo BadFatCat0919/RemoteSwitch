@@ -36,6 +36,6 @@ void loop()
 {
     if(Key_Board.status())
     { 
-        enter_OTA_status();
+        OTA_enter_update_status();
     }
 }

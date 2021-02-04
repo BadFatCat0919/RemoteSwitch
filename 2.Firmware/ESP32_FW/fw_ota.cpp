@@ -55,7 +55,7 @@ int OTA_update_init(void)
  * @brief 单片机进入OTA状态
  * @note 函数中含有重启命令
  */
-void enter_OTA_status(void)
+void OTA_enter_update_status(void)
 {
     data_setUpdateFlag(true);
     data_save();

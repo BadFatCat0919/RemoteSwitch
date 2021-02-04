@@ -9,7 +9,7 @@
 #define __FW_OTA_H__
 
 int OTA_update_init(void);
-void enter_OTA_status(void);
+void OTA_enter_update_status(void);
 void OTA_update(void);
 
 #endif // __FW_OTA_H__
