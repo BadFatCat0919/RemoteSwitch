@@ -1,7 +1,7 @@
 /**
  * @file hw_key.hpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 硬件层 HW_Key 类
+ * @brief 硬件层HW_Key类
  * @date 2021-01-24
  */
 
@@ -18,7 +18,7 @@ class HW_Key
 {
 public:
     /**
-     * @brief 创建一个新的 HW_Key 对象
+     * @brief 创建一个新的HW_Key对象
      * @param pin 使用的gpio引脚，缺省为板载的按键
      * @param pressLevel 按键按下时的电平
      */
@@ -26,7 +26,7 @@ public:
         _gpio(pin, pressLevel ? INPUT_PULLDOWN : INPUT_PULLUP), _pressLevel(pressLevel){}
 
     /**
-     * @brief 销毁一个已创建的 HW_Key 对象
+     * @brief 销毁一个已创建的HW_Key对象
      */
     ~HW_Key() = default;
 

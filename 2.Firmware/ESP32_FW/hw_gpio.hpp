@@ -1,7 +1,7 @@
 /**
  * @file hw_gpio.hpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 硬件层 HW_GPIO 类
+ * @brief 硬件层HW_GPIO类
  * @date 2021-01-24
  */
 
@@ -12,13 +12,13 @@
 #include "esp32-hal-gpio.h"
 
 /**
- * @brief 硬件层的 HW_GPIO 类
+ * @brief 硬件层的HW_GPIO类
  */
 class HW_GPIO
 {
 public:
     /**
-     * @brief 创建一个新的 HW_GPIO 对象
+     * @brief 创建一个新的HW_GPIO对象
      * @param pin 使用的引脚
      * @param mode 引脚模式
      * @param status 默认电平状态
@@ -27,7 +27,7 @@ public:
     _pin(pin), _mode(mode), _status(status){}
     
     /**
-     * @brief 销毁一个已创建的 HW_GPIO 对象
+     * @brief 销毁一个已创建的HW_GPIO对象
      */
     ~HW_GPIO() = default;
 

@@ -1,7 +1,7 @@
 /**
  * @file hw_led.hpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 硬件层 HW_LED 类
+ * @brief 硬件层HW_LED类
  * @date 2021-01-23
  */
 
@@ -12,13 +12,13 @@
 #include "hw_gpio.hpp"
 
 /**
- * @brief 硬件层的 HW_LED 类
+ * @brief 硬件层的HW_LED类
  */
 class HW_LED
 {
 public:
     /**
-     * @brief 创建一个新的 HW_LED 对象
+     * @brief 创建一个新的HW_LED对象
      * @param pin 使用的gpio引脚，缺省为板载的LED
      * @param onLevel LED点亮时的电平
      * @param defaultStatus LED初始化后的默认状态
@@ -27,7 +27,7 @@ public:
         _gpio(pin, OUTPUT, defaultStatus ? onLevel : !onLevel), _onLevel(onLevel){}
 
     /**
-     * @brief 销毁一个已创建的 HW_LED 对象
+     * @brief 销毁一个已创建的HW_LED对象
      */
     ~HW_LED() = default;
 
