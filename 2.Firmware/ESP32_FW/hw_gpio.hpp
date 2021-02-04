@@ -9,7 +9,7 @@
 #define __HW_GPIO_HPP__
 
 #include <stdint.h>
-#include "esp32-hal-gpio.h"
+#include <esp32-hal-gpio.h>
 
 /**
  * @brief 硬件层的HW_GPIO类

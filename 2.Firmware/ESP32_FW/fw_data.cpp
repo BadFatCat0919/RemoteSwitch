@@ -6,7 +6,7 @@
  */
 
 #include "fw_data.h"
-#include "EEPROM.h"
+#include <EEPROM.h>
 
 static const size_t DATA_SIZE = 1;
 static EEPROMClass dataVessel("eeprom0", DATA_SIZE);

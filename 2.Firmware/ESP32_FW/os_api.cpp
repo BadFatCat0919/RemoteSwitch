@@ -8,7 +8,7 @@
 #include "hw_api.h"
 #include "os_api.h"
 #include "os_task.h"
-#include "FreeRTOS.h"
+#include <FreeRTOS.h>
 
 /**
  * @brief 操作系统初始化。创建各个任务并启动调度器
