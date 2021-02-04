@@ -18,6 +18,6 @@ void task_blink(void *pvParameters)
 
     for (;;)
     {
-        LED_Board = Key_Board.status();
+        LED_Board = Key_Board.is_press();
     }
 }

@@ -41,11 +41,11 @@ public:
     }
 
     /**
-     * @brief 按键状态
+     * @brief 检测按键是否被按下
      * @return true 被按下
      * @return false 没被按下
      */
-    bool status()
+    bool is_press()
     {
         return _gpio.status() == _pressLevel;
     }

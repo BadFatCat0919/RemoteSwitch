@@ -34,7 +34,7 @@ void setup()
  */
 void loop()
 {
-    if(Key_Board.status())
+    if(Key_Board.is_press())
     { 
         OTA_enter_update_status();
     }
