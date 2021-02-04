@@ -1,12 +1,12 @@
 /**
- * @file os_task.cpp
+ * @file app_task.cpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 操作系统层的各个Task的实现
+ * @brief 应用程序层的各个Task的实现
  * @date 2021-01-23
  */
 
 #include "base.h"
-#include "os_task.h"
+#include "app_task.h"
 #include "hardware.h"
 
 /**

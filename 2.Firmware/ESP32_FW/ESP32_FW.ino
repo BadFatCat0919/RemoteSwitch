@@ -8,7 +8,7 @@
 #include "base.h"
 #include "hardware.h"
 #include "firmware.h"
-#include "os.h"
+#include "app.h"
 
 /**
  * @brief 主循环开始执行前仅被调用一次的代码，这里用于初始化
@@ -29,7 +29,7 @@ void setup()
     {
 
     }
-    if(ret = os_init())
+    if(ret = app_init())
     {
 
     }
