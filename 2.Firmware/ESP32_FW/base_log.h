@@ -1,7 +1,7 @@
 /**
- * @file bs_log.h
+ * @file base_log.h
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief log相关函数声明
+ * @brief log相关接口声明
  * @date 2021-02-04
  */
 

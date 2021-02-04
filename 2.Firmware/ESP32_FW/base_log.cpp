@@ -1,12 +1,12 @@
 /**
- * @file bs_log.cpp
+ * @file base_log.cpp
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief log相关函数实现
+ * @brief log相关接口实现
  * @date 2021-02-04
  */
 
 #include "base.h"
-#include "bs_log.h"
+#include "base_log.h"
 #include <HardwareSerial.h>
 
 /**
