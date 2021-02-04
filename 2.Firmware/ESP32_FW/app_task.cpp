@@ -10,15 +10,17 @@
 #include "hardware.h"
 
 /**
- * @brief 点灯测试任务
+ * @brief 任务
  * @param pvParameters 
  */
-void task_blink(void *pvParameters)
+void task_test1(void *pvParameters)
 {
     (void) pvParameters;
 
     for (;;)
     {
-        LED_Board = Key_Board.is_press();
+        // LOG_INFORM("enter task_test1!\n");
+        Serial.printf("test here!\n");
+        vTaskDelay(200);
     }
 }

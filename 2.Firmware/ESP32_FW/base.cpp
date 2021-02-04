@@ -6,7 +6,7 @@
  */
 
 #include "base.h"
-#include "bs_log.h"
+#include "base_log.h"
 
 /**
  * @brief 基础层

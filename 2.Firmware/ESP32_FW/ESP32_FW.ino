@@ -15,8 +15,10 @@
  */
 void setup()
 {
+    LOG_SET_LEVEL(LOG_LEVEL_DEBUG);
+
     int ret = ERROR_NONE;
-    
+
     if(ret = base_init())
     {
 
@@ -44,4 +46,5 @@ void loop()
     { 
         OTA_enter_update_status();
     }
+    // LOG_DEBUG("test log debug!\n");
 }

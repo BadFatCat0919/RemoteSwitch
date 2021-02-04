@@ -9,7 +9,11 @@
 #define __BASE_H__
 
 /* 通用头文件 */
+#include <stddef.h>
 #include <stdint.h>
+#include <Arduino.h>
+#include <Esp.h>
+#include "base_log.h"
 
 /* 通用错误码 */
 #define ERROR_NONE           0   // 没有错误

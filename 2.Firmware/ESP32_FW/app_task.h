@@ -8,6 +8,6 @@
 #ifndef __APP_TASK_H__
 #define __APP_TASK_H__
 
-void task_blink(void *pvParameters);
+void task_test1(void *pvParameters);
 
 #endif // __APP_TASK_H__

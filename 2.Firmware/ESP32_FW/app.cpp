@@ -20,7 +20,7 @@ int app_init(void)
 	int ret = ERROR_NONE;
 
 	xTaskCreatePinnedToCore(
-	task_blink
+	task_test1
 		,  "TaskBlink"
 		,  1024
 		,  NULL
