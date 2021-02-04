@@ -1,25 +1,31 @@
 /**
  * @file ESP32_FW.ino
  * @author BadFatCat0919 (543015378@qq.com)
- * @brief 用户代码与Arduino的接口
+ * @brief 用户代码与Arduino固件的接口
  * @date 2021-01-23
  */
 
-#include "hw_api.h"
-#include "fw_api.h"
-#include "os_api.h"
+#include "base.h"
+#include "hardware.h"
+#include "firmware.h"
+#include "os.h"
 
 /**
- * @brief 主循环开始执行前仅被调用一次的代码。这里用于软硬件初始化
+ * @brief 主循环开始执行前仅被调用一次的代码，这里用于初始化
  */
 void setup()
 {
-    int ret = 0;
-    if(ret = hw_init())
+    int ret = ERROR_NONE;
+    
+    if(ret = base_init())
     {
 
     }
-    if(ret = fw_init())
+    if(ret = hardware_init())
+    {
+
+    }
+    if(ret = firmware_init())
     {
 
     }
@@ -30,7 +36,7 @@ void setup()
 }
 
 /**
- * @brief 主循环。程序都在Task中执行，这里置空
+ * @brief 程序都在Task中执行，主循环置空
  */
 void loop()
 {

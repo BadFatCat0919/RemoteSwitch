@@ -5,8 +5,9 @@
  * @date 2021-01-23
  */
 
+#include "base.h"
 #include "os_task.h"
-#include "hw_api.h"
+#include "hardware.h"
 
 /**
  * @brief 点灯测试任务

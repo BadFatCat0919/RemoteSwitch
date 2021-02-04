@@ -5,9 +5,10 @@
  * @date 2021-02-03
  */
 
+#include "base.h"
 #include "fw_ota.h"
 #include "fw_data.h"
-#include "hw_api.h"
+#include "hardware.h"
 #include <Esp.h>
 #include <stdio.h>
 #include <WiFi.h>
@@ -25,30 +26,40 @@ WiFiServer server(80);
  */
 int OTA_update_init(void)
 {
-    char ssid[] = "RemoteSwitch-XXXXXXXXXXXX";
-    sprintf(ssid, "RemoteSwitch-%012llX", ESP.getEfuseMac());
-    WiFi.softAP(ssid);
+    int ret = ERROR_NONE;
 
-    ArduinoOTA
-    .onStart([]() {
-        LED_Board.off();
-    })
-    .onEnd([]() {
-        LED_Board.on();
-    })
-    .onProgress([](unsigned int progress, unsigned int total) {
-        if(!(progress % 100))
+    do{
+        data_setUpdateFlag(false);
+        if(ret = data_save())
         {
-            LED_Board.reverse();
+            break;
         }
-    })
-    .onError([](ota_error_t error) {
-        
-    });
 
-    ArduinoOTA.begin();
+        char ssid[] = "RemoteSwitch-XXXXXXXXXXXX";
+        sprintf(ssid, "RemoteSwitch-%012llX", ESP.getEfuseMac());
+        WiFi.softAP(ssid);
 
-    return 0;
+        ArduinoOTA
+        .onStart([]() {
+            LED_Board.off();
+        })
+        .onEnd([]() {
+            LED_Board.on();
+        })
+        .onProgress([](unsigned int progress, unsigned int total) {
+            if(!(progress % 100))
+            {
+                LED_Board.reverse();
+            }
+        })
+        .onError([](ota_error_t error) {
+            
+        });
+
+        ArduinoOTA.begin();
+    }while(false);
+
+    return ret;
 }
 
 /**

@@ -1,12 +1,13 @@
 /**
- * @file os_api.cpp
+ * @file os.cpp
  * @author BadFatCat0919 (543015378@qq.com)
  * @brief 操作系统层的API实现
  * @date 2021-01-24
  */
 
-#include "hw_api.h"
-#include "os_api.h"
+#include "base.h"
+#include "hardware.h"
+#include "os.h"
 #include "os_task.h"
 #include <FreeRTOS.h>
 
@@ -16,7 +17,7 @@
  */
 int os_init(void)
 {
-	int ret = 0;
+	int ret = ERROR_NONE;
 
 	xTaskCreatePinnedToCore(
 	task_blink

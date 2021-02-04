@@ -5,6 +5,7 @@
  * @date 2021-02-03
  */
 
+#include "base.h"
 #include "fw_data.h"
 #include <EEPROM.h>
 
@@ -19,12 +20,12 @@ uint8_t &updateFlag = data[0];
  */
 int data_init(void)
 {
-    int ret = 0;
+    int ret = ERROR_NONE;
 
     do{
         if(!dataVessel.begin(dataVessel.length()))
         {
-            ret = -1;
+            ret = ERROR_HARDWARE;
             break;
         }
         else
@@ -45,7 +46,7 @@ int data_save(void)
     dataVessel.put(0, data);
     if(!dataVessel.commit())
     {
-        return -1;
+        return ERROR_HARDWARE;
     }
     return 0;
 }

@@ -1,12 +1,12 @@
 /**
- * @file hw_api.h
+ * @file hardware.h
  * @author BadFatCat0919 (543015378@qq.com)
  * @brief 硬件层的API声明
  * @date 2021-01-24
  */
 
-#ifndef __HW_API_H__
-#define __HW_API_H__
+#ifndef __HARDWARE_H__
+#define __HARDWARE_H__
 
 #include "hw_gpio.hpp"
 #include "hw_led.hpp"
@@ -15,6 +15,6 @@
 extern HW_LED LED_Board;
 extern HW_Key Key_Board;
 
-int hw_init(void);
+int hardware_init(void);
 
-#endif // __HW_API_H__
+#endif // __HARDWARE_H__
