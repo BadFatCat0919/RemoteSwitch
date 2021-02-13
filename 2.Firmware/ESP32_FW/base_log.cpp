@@ -2,28 +2,14 @@
  * @file base_log.cpp
  * @author BadFatCat0919 (543015378@qq.com)
  * @brief log相关接口实现
- * @date 2021-02-04
+ * @date 2021-02-13
  */
 
 #include "base.h"
 #include "base_log.h"
 #include <HardwareSerial.h>
-#include <stdio.h>
-#include <stdarg.h>
 
 static int log_level = LOG_LEVEL_NONE;
-
-/**
- * @brief 将标准输出重定向到串口
- * @param c 需要输出的字符
- * @param fp 需要输出到的文件
- * @return 输出的字符
- */
-int fputc(int c, FILE *fp)
-{
-    Serial.write(c);
-    return c;
-}
 
 /**
  * @brief log初始化
@@ -48,43 +34,34 @@ void _log_set_level(int level)
 }
 
 /**
- * @brief 格式化输出log
- * @param level log等级
- * @param file log所在文件
- * @param function log所在函数
- * @param line log所在行数
- * @param format 格式化字符串
- * @param ... 参数列表
+ * @brief 判断在当前设定log等级下，对应log是否应当打印
+ * @param level 等待打印的log的等级
+ * @return true 设定的log等级不小于等待打印的log的等级
+ * @return false 设定的log等级小于等待打印的log的等级
  */
-void _log_printf(int level, const char *file, int line, const char *function, const char *format, ...)
+bool _log_compare_level(int level)
 {
-    if(log_level < level) // 只有在系统设置的log等级不小于该条log等级时打印
-    {
-        return;
-    }
+    return log_level >= level;
+}
 
-    char levelLabel = '\0';
+/**
+ * @brief 将log等级转换为字符标签
+ * @param level 需要设置的等级
+ * @return log等级对应的字符标签
+ */
+char _log_get_level_label(int level)
+{
     switch(level)
     {
         case LOG_LEVEL_DEBUG:
-            levelLabel = 'D';
-            break;
+            return 'D';
         case LOG_LEVEL_INFORM:
-            levelLabel = 'I';
-            break;
+            return 'I';
         case LOG_LEVEL_WARN:
-            levelLabel = 'W';
-            break;
+            return 'W';
         case LOG_LEVEL_ERROR:
-            levelLabel = 'E';
-            break;
+            return 'E';
         default:
-            break;
+            return '?';
     }
-    printf("[%c][%s:%03d][%s]>> ", levelLabel, file, line, function);
-
-    va_list args;
-    va_start(args, format);
-    printf(format, args);
-    va_end(args);
 }
