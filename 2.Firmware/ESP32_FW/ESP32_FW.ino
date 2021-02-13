@@ -18,22 +18,32 @@ void setup()
     LOG_SET_LEVEL(LOG_LEVEL_DEBUG);
 
     int ret = ERROR_NONE;
+
     if(ret = base_init())
     {
         LOG_E(ret, "base init failed!\r\n");
     }
+
+    LOG_D("init hardware...\r");
     if(ret = hardware_init())
     {
         LOG_E(ret, "hardware init failed!\r\n");
     }
+    LOG_D("hardware init succeed.\r\n");
+
+    LOG_D("init firmware...\r");
     if(ret = firmware_init())
     {
         LOG_E(ret, "firmware init failed!\r\n");
     }
+    LOG_D("firmware init succeed.\r\n");
+    
+    LOG_D("init app...\r");
     if(ret = app_init())
     {
         LOG_E(ret, "app init failed!\r\n");
     }
+    LOG_D("app init succeed.\r\n");
 }
 
 /**
@@ -41,33 +51,6 @@ void setup()
  */
 void loop()
 {
-    if(Touch_P04.scan())
-    {
-        LED_Board.on();
-        while(Touch_P04.scan())
-        {
-            vTaskDelay(50);
-        }
-        LED_Board.off();
-        Servo_Left.set(Servo_Left.get_pwm_max());
-        vTaskDelay(500);
-        Servo_Left.set(Servo_Left.get_pwm_mid());
-        vTaskDelay(500);
-    }
-    else if(Touch_P27.scan())
-    {
-        LED_Board.on();
-        while(Touch_P27.scan())
-        {
-            vTaskDelay(50);
-        }
-        LED_Board.off();
-        Servo_Left.set(Servo_Left.get_pwm_min());
-        vTaskDelay(500);
-        Servo_Left.set(Servo_Left.get_pwm_mid());
-        vTaskDelay(500);
-    }
-    vTaskDelay(50);
 //                      _ooOoo_	
 //                     o8888888o
 //                     88" . "88
