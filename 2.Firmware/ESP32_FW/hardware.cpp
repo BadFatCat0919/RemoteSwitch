@@ -10,7 +10,6 @@
 
 HW_LED LED_Board(2, true, false);
 HW_Key Key_Board(0, false);
-HW_Touch Touch_P04(4), Touch_P27(27);
 HW_Servo Servo_Left(13, 1), Servo_Right(12, 2);
 
 /**
@@ -23,12 +22,8 @@ int hardware_init(void)
     
     LED_Board.init();
     Key_Board.init();
-    Touch_P27.init();
-    Touch_P04.init();
     Servo_Left.init();
-    // Servo_Right.init();
-
-    Servo_Left.on().set(Servo_Left.get_pwm_mid());
+    Servo_Right.init();
 
     return ret;
 }

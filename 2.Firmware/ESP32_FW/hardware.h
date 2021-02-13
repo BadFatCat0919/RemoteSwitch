@@ -15,7 +15,6 @@
 
 extern HW_LED LED_Board;
 extern HW_Key Key_Board;
-extern HW_Touch Touch_P27, Touch_P04;
 extern HW_Servo Servo_Left, Servo_Right;
 
 int hardware_init(void);
