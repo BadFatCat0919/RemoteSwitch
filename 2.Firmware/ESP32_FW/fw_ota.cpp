@@ -50,7 +50,7 @@ int OTA_update_init(void)
             LED_Board.on();
         })
         .onProgress([](unsigned int progress, unsigned int total) {
-            LOG_D("Progress: %u%%\r", (progress / (total / 100)));
+            LOG_D("Progress: %u%%...  \r", (progress / (total / 100)));
             if(!(progress % 100))
             {
                 LED_Board.reverse();
