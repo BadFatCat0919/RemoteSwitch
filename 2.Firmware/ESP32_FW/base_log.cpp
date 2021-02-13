@@ -32,6 +32,9 @@ int log_init(void)
     int ret = ERROR_NONE;
 
     Serial.begin(115200);
+    PRINTF("\r\n");
+    PRINTF("==============================================================================================\r\n");
+    PRINTF("user log:\r\n");
 
     return ret;
 }

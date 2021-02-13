@@ -38,6 +38,7 @@ int OTA_update_init(void)
         char ssid[] = "RemoteSwitch-XXXXXXXXXXXX";
         sprintf(ssid, "RemoteSwitch-%012llX", ESP.getEfuseMac());
         WiFi.softAP(ssid);
+        LOG_I("WiFi ssid: %s\r\n", ssid);
 
         ArduinoOTA
         .onStart([]() {
@@ -63,13 +64,24 @@ int OTA_update_init(void)
 }
 
 /**
- * @brief 单片机进入OTA状态
+ * @brief 单片机重启并进入OTA状态
  * @note 函数中含有重启命令
  */
 void OTA_enter_update_status(void)
 {
     data_setUpdateFlag(true);
-    data_save();
+
+    int ret = ERROR_NONE;
+    do{
+        if(ret = data_save())
+        {
+            LOG_E(ret, "data save error!\r\n");
+            vTaskDelay(200);
+        }
+    }while(ret);
+            LOG_D("check point\r\n");
+
+    LOG_D("restart and enter OTA update mode...\r\n");
     ESP.restart();
 }
 
@@ -79,9 +91,22 @@ void OTA_enter_update_status(void)
  */
 void OTA_update(void)
 {
+    LOG_D("OTA update ready.\r\n");
     while(true)
     {
         LED_Board.on();
         ArduinoOTA.handle();
+        
+        if(Key_Board.scan())
+        {
+            LOG_D("Key_Board is pressed.\r\n");
+            LED_Board.off();
+            while(Key_Board.scan())
+            {
+                vTaskDelay(50);
+            }
+            LOG_D("restart and quit OTA update mode...\r\n");
+            ESP.restart();
+        }
     }
 }

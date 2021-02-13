@@ -20,19 +20,19 @@ void setup()
     int ret = ERROR_NONE;
     if(ret = base_init())
     {
-        LOG_E(ret, "base init failed!\n");
+        LOG_E(ret, "base init failed!\r\n");
     }
     if(ret = hardware_init())
     {
-        LOG_E(ret, "hardware init failed!\n");
+        LOG_E(ret, "hardware init failed!\r\n");
     }
     if(ret = firmware_init())
     {
-        LOG_E(ret, "firmware init failed!\n");
+        LOG_E(ret, "firmware init failed!\r\n");
     }
     if(ret = app_init())
     {
-        LOG_E(ret, "app init failed!\n");
+        LOG_E(ret, "app init failed!\r\n");
     }
 }
 
@@ -49,12 +49,12 @@ void loop()
 //                  ____/`---'\____
 //                .'  \\|     |//  `.
 //               /  \\|||  :  |||//  \
-//              /  _||||| -:- |||||-  \
+//              /  _||||| -:- |||||_  \
 //              |   | \\\  -  /// |   |
-//              | \_|  ''\---/''  |   |
+//              | \_|  ''\---/''  |_/ |
 //              \  .-\__  `-`  ___/-. /
-//        =======|. .'  /--.--\  `. .|=======
-//       ==."" '<  `.___\_<|>_/___.'  >'"".===
+//        =======|. .'  /--.--\  '. .|=======
+//       ===.""'<  '.___\_<|>_/___.'  >'"".===
 //      ==| | :  ` - `.;`\ _ /`;.`/ - ` : | |==
 //     ===\  \ `-.   \_ __\ /__ _/   .-` /  /===
 //    =====`-.____`-.___\_____/___.-`____.-'=====
