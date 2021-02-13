@@ -19,7 +19,7 @@ class HW_LED
 public:
     /**
      * @brief 创建一个新的HW_LED对象
-     * @param pin 使用的gpio引脚，缺省为板载的LED
+     * @param pin 使用的gpio引脚, 缺省为板载的LED
      * @param onLevel LED点亮时的电平
      * @param defaultStatus LED初始化后的默认状态
      */

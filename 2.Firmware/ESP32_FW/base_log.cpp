@@ -25,7 +25,7 @@ static const char *error_msg[] = {
 
 /**
  * @brief log初始化
- * @return 成功为0，否则为错误码
+ * @return 成功为0, 否则为错误码
  */
 int log_init(void)
 {
@@ -49,7 +49,7 @@ void _log_set_level(int level)
 }
 
 /**
- * @brief 判断在当前设定log等级下，对应log是否应当打印
+ * @brief 判断在当前设定log等级下, 对应log是否应当打印
  * @param level 等待打印的log的等级
  * @return true 设定的log等级不小于等待打印的log的等级
  * @return false 设定的log等级小于等待打印的log的等级

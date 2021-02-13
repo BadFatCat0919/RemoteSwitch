@@ -16,7 +16,7 @@ uint8_t &updateFlag = data[0];
 
 /**
  * @brief 数据初始化
- * @return 成功为0，否则为错误码
+ * @return 成功为0, 否则为错误码
  */
 int data_init(void)
 {
@@ -39,7 +39,7 @@ int data_init(void)
 
 /**
  * @brief 将数据写入存储器
- * @return 成功为0，否则为错误码
+ * @return 成功为0, 否则为错误码
  */
 int data_save(void)
 {

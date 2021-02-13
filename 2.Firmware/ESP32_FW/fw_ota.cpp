@@ -22,7 +22,7 @@ WiFiServer server(80);
 
 /**
  * @brief OTA升级初始化
- * @return 成功为0，否则为错误码
+ * @return 成功为0, 否则为错误码
  */
 int OTA_update_init(void)
 {

@@ -12,14 +12,14 @@
 #include "hw_gpio.hpp"
 
 /**
- * @brief 
+ * @brief 硬件层的HW_Key类
  */
 class HW_Key
 {
 public:
     /**
      * @brief 创建一个新的HW_Key对象
-     * @param pin 使用的gpio引脚，缺省为板载的按键
+     * @param pin 使用的gpio引脚, 缺省为板载的按键
      * @param pressLevel 按键按下时的电平
      */
     HW_Key(uint8_t pin = 0, bool pressLevel = false):

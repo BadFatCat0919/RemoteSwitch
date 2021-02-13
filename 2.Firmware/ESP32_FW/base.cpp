@@ -10,7 +10,7 @@
 
 /**
  * @brief 基础层
- * @return 成功为0，否则为错误码
+ * @return 成功为0, 否则为错误码
  */
 int base_init(void)
 {

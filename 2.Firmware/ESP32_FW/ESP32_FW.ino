@@ -11,7 +11,7 @@
 #include "app.h"
 
 /**
- * @brief 主循环开始执行前仅被调用一次的代码，这里用于初始化
+ * @brief 主循环开始执行前仅被调用一次的代码, 这里用于初始化
  */
 void setup()
 {
@@ -37,10 +37,36 @@ void setup()
 }
 
 /**
- * @brief 程序都在Task中执行，主循环置空
+ * @brief 程序都在Task中执行, 主循环置空
  */
 void loop()
 {
+    static int pwm = 0;
+    const int step = 1;
+    if(Touch_P04.scan())
+    {
+        LED_Board.on();
+        pwm -= step;
+        while(Touch_P04.scan())
+        {
+            vTaskDelay(50);
+        }
+        LED_Board.off();
+        LOG_D("pwm:%d\r\n", pwm);
+    }
+    else if(Touch_P27.scan())
+    {
+        LED_Board.on();
+        pwm += step;
+        while(Touch_P27.scan())
+        {
+            vTaskDelay(50);
+        }
+        LED_Board.off();
+        LOG_D("pwm:%d\r\n", pwm);
+    }
+    Servo_Left.set(pwm);
+    vTaskDelay(50);
 //                      _ooOoo_	
 //                     o8888888o
 //                     88" . "88
