@@ -33,14 +33,16 @@ public:
 
     /**
      * @brief 初始化
+     * @return 成功为0, 否则为错误码
      */
-    void init()
+    int init()
     {
         pinMode(_pin, _mode);
         if(_mode == OUTPUT)
         {
             digitalWrite(_pin, _status);
         }
+        return 0;
     }
     
     /**

@@ -32,10 +32,11 @@ public:
 
     /**
      * @brief 初始化
+     * @return 成功为0, 否则为错误码
      */
-    void init()
+    int init()
     {
-        _gpio.init();
+        return _gpio.init();
     }
 
     /**

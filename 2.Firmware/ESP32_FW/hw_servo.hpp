@@ -37,8 +37,7 @@ public:
 
     /**
      * @brief 初始化
-     * @return true 初始化成功
-     * @return false 可用的pwm通道不足, 初始化失败
+     * @return 成功为0, 否则为错误码
      */
     bool init()
     {

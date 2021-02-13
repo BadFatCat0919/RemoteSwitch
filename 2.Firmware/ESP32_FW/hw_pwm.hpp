@@ -40,12 +40,11 @@ public:
 
     /**
      * @brief 初始化
-     * @return 占用的channel号, 若失败则为-1
+     * @return 成功为0, 否则为错误码
      */
     int init()
     {
-        ledcSetup(_channel, _frequency, _countBits);
-        return _channel;
+        return !ledcSetup(_channel, _frequency, _countBits);
     }
 
     /**
