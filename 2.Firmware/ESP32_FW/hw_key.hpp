@@ -45,7 +45,7 @@ public:
      * @return true 被按下
      * @return false 没被按下
      */
-    bool is_press()
+    bool scan()
     {
         return _gpio.status() == _pressLevel;
     }

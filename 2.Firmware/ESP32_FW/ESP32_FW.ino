@@ -42,7 +42,7 @@ void setup()
  */
 void loop()
 {
-    if(Key_Board.is_press())
+    if(Key_Board.scan())
     { 
         OTA_enter_update_status();
     }
