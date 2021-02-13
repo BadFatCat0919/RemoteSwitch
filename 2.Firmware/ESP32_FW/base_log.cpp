@@ -11,6 +11,18 @@
 
 static int log_level = LOG_LEVEL_NONE;
 
+static const char *error_msg[] = {
+    "",
+    "ERROR",
+    "ERROR_TIMEOUT",
+    "ERROR_FULL",
+    "ERROR_EMPTY",
+    "ERROR_NOMEM",
+    "ERROR_BUSY",
+    "ERROR_INVAL",
+    "ERROR_HARDWARE",
+};
+
 /**
  * @brief log初始化
  * @return 成功为0，否则为错误码
@@ -64,4 +76,14 @@ char _log_get_level_label(int level)
         default:
             return '?';
     }
+}
+
+/**
+ * @brief 将错误码转为错误信息字符串
+ * @param errorLabel 错误码
+ * @return 错误信息字符串
+ */
+const char *_log_get_error_message(int errorLabel)
+{
+    return error_msg[errorLabel];
 }

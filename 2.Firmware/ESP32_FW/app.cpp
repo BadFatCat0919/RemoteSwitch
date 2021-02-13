@@ -19,14 +19,7 @@ int app_init(void)
 {
 	int ret = ERROR_NONE;
 
-	xTaskCreatePinnedToCore(
-	task_test1
-		,  "TaskBlink"
-		,  1024
-		,  NULL
-		,  1
-		,  NULL 
-		,  APP_CPU_NUM);
+	xTaskCreatePinnedToCore(task_test1, "Task1", 1024, NULL, 1, NULL, APP_CPU_NUM);
 
 	return ret;
 }

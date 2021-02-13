@@ -19,6 +19,7 @@ int firmware_init(void)
     do{
         if(ret = data_init())
         {
+            LOG_E(ret, "data init failed!\n");
             break;
         }
 
@@ -26,6 +27,7 @@ int firmware_init(void)
         {
             if(ret = OTA_update_init())
             {
+                LOG_E(ret, "OTA update init failed!\n");
                 break;
             }
             OTA_update(); // 函数中含有while(true)

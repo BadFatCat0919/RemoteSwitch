@@ -24,6 +24,7 @@
 void _log_set_level(int level);
 bool _log_compare_level(int level);
 char _log_get_level_label(int level);
+const char *_log_get_error_message(int errorLabel);
 
 /* LOG调用接口 */
 int log_init(void);
@@ -34,7 +35,7 @@ int log_init(void);
     do{\
         if(_log_compare_level(level))\
         {\
-            PRINTF("[%c][%s:%03d][%s]>>", _log_get_level_label(level), _FILTER_FILE_NAME(__FILE__), __LINE__, __func__);\
+            PRINTF("[%c][%s:%03d][%s]", _log_get_level_label(level), _FILTER_FILE_NAME(__FILE__), __LINE__, __func__);\
             PRINTF(format, ##__VA_ARGS__);\
         }\
     }while(false)
@@ -42,6 +43,11 @@ int log_init(void);
 #define LOG_D(format, ...)              LOG_PRINTF(LOG_LEVEL_DEBUG, format, ##__VA_ARGS__)
 #define LOG_I(format, ...)              LOG_PRINTF(LOG_LEVEL_INFORM, format, ##__VA_ARGS__)
 #define LOG_W(format, ...)              LOG_PRINTF(LOG_LEVEL_WARN, format, ##__VA_ARGS__)
-#define LOG_E(format, ...)              LOG_PRINTF(LOG_LEVEL_ERROR, format, ##__VA_ARGS__)
+
+#define LOG_E(errorLabel, format, ...)\
+    do{\
+        LOG_PRINTF(LOG_LEVEL_ERROR, "%s:", _log_get_error_message(errorLabel));\
+        PRINTF(format, ##__VA_ARGS__);\
+    }while(false)
 
 #endif // __BASE_LOG_H__

@@ -18,22 +18,21 @@ void setup()
     LOG_SET_LEVEL(LOG_LEVEL_DEBUG);
 
     int ret = ERROR_NONE;
-
     if(ret = base_init())
     {
-
+        LOG_E(ret, "base init failed!\n");
     }
     if(ret = hardware_init())
     {
-
+        LOG_E(ret, "hardware init failed!\n");
     }
     if(ret = firmware_init())
     {
-
+        LOG_E(ret, "firmware init failed!\n");
     }
     if(ret = app_init())
     {
-
+        LOG_E(ret, "app init failed!\n");
     }
 }
 
@@ -46,5 +45,6 @@ void loop()
     { 
         OTA_enter_update_status();
     }
-    // LOG_DEBUG("test log debug!\n");
+
+    LOG_E(ERROR_TIMEOUT, "app init failed!\n");
 }

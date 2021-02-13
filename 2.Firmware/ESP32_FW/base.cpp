@@ -19,7 +19,7 @@ int base_init(void)
     do{
         if(ret = log_init())
         {
-
+            LOG_E(ret, "log init failed!\n");
         }
     }while(false);
 

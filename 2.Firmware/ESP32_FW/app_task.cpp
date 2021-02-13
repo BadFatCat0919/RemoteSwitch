@@ -10,7 +10,7 @@
 #include "hardware.h"
 
 /**
- * @brief 任务
+ * @brief 任务1
  * @param pvParameters 
  */
 void task_test1(void *pvParameters)
@@ -19,8 +19,6 @@ void task_test1(void *pvParameters)
 
     for (;;)
     {
-        // LOG_INFORM("enter task_test1!\n");
-        Serial.printf("test here!\n");
-        vTaskDelay(200);
+        
     }
 }
