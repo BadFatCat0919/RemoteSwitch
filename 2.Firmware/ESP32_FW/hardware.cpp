@@ -28,7 +28,7 @@ int hardware_init(void)
     Servo_Left.init();
     // Servo_Right.init();
 
-    Servo_Left.on().set(0);
+    Servo_Left.on().set(Servo_Left.get_pwm_mid());
 
     return ret;
 }

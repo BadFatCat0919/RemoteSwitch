@@ -41,31 +41,32 @@ void setup()
  */
 void loop()
 {
-    static int pwm = 0;
-    const int step = 1;
     if(Touch_P04.scan())
     {
         LED_Board.on();
-        pwm -= step;
         while(Touch_P04.scan())
         {
             vTaskDelay(50);
         }
         LED_Board.off();
-        LOG_D("pwm:%d\r\n", pwm);
+        Servo_Left.set(Servo_Left.get_pwm_max());
+        vTaskDelay(500);
+        Servo_Left.set(Servo_Left.get_pwm_mid());
+        vTaskDelay(500);
     }
     else if(Touch_P27.scan())
     {
         LED_Board.on();
-        pwm += step;
         while(Touch_P27.scan())
         {
             vTaskDelay(50);
         }
         LED_Board.off();
-        LOG_D("pwm:%d\r\n", pwm);
+        Servo_Left.set(Servo_Left.get_pwm_min());
+        vTaskDelay(500);
+        Servo_Left.set(Servo_Left.get_pwm_mid());
+        vTaskDelay(500);
     }
-    Servo_Left.set(pwm);
     vTaskDelay(50);
 //                      _ooOoo_	
 //                     o8888888o
