@@ -32,12 +32,10 @@ public:
 
     /**
      * @brief 初始化
-     * @return HW_LED& 
      */
-    HW_Key& init()
+    void init()
     {
         _gpio.init();
-        return *this;
     }
 
     /**

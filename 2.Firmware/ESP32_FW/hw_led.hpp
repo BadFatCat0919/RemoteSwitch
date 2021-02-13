@@ -29,16 +29,17 @@ public:
     /**
      * @brief 销毁一个已创建的HW_LED对象
      */
-    ~HW_LED() = default;
+    ~HW_LED()
+    {
+        off();
+    }
 
     /**
      * @brief 初始化
-     * @return HW_LED& 
      */
-    HW_LED& init()
+    void init()
     {
         _gpio.init();
-        return *this;
     }
 
     /**

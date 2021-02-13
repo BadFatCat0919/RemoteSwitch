@@ -33,16 +33,14 @@ public:
 
     /**
      * @brief 初始化
-     * @return HW_GPIO& 
      */
-    HW_GPIO& init()
+    void init()
     {
         pinMode(_pin, _mode);
         if(_mode == OUTPUT)
         {
             digitalWrite(_pin, _status);
         }
-        return *this;
     }
     
     /**
