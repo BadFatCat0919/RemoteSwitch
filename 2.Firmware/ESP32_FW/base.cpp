@@ -5,6 +5,7 @@
  * @date 2021-02-04
  */
 
+#include <Esp.h>
 #include "base.h"
 #include "base_log.h"
 
@@ -19,7 +20,7 @@ int base_init(void)
     do{
         if(ret = log_init())
         {
-            LOG_E(ret, "log init failed!\r\n");
+            ESP.restart();
         }
     }while(false);
 
