@@ -20,12 +20,12 @@ public:
      * @brief 创建一个新的HW_Servo对象
      * @param pin 使用的引脚
      * @param pwmChannel 使用的pwm通道
-     * @param onValue 开灯状态时的角度值
-     * @param releaseValue 释力状态的角度值
-     * @param offValue 关灯状态的角度值
+     * @param minValue 最大pwm值
+     * @param midValue 中间pwm值
+     * @param maxValue 最小pwm值
      */
-    HW_Servo(int pin, int pwmChannel, int onValue = 6, int releaseValue = 19, int offValue = 32):
-        _pwm(pin, pwmChannel, 50, 8), _onValue(onValue), _releaseValue(releaseValue), _offValue(offValue){}
+    HW_Servo(int pin, int pwmChannel, int minValue = 6, int maxValue = 32):
+        _pwm(pin, pwmChannel, 50, 8), _minValue(minValue), _midValue((minValue + maxValue)/2), _maxValue(maxValue){}
 
     /**
      * @brief 销毁一个已创建的HW_Servo对象
@@ -72,6 +72,7 @@ public:
     HW_Servo& set(long pwmValue)
     {
         _pwm.set(pwmValue);
+        _nowValue = pwmValue;
         return *this;
     }
 
@@ -82,13 +83,48 @@ public:
      */
     HW_Servo& operator=(long pwmValue)
     {
-        set(pwmValue);
-        return *this;
+        return set(pwmValue);
+    }
+
+    /**
+     * @brief 获得当前pwm值
+     * @return 当前pwm值
+     */
+    int get_pwm_now()
+    {
+        return _nowValue;
+    }
+
+    /**
+     * @brief 获得最大pwm值
+     * @return 最大pwm值
+     */
+    int get_pwm_max()
+    {
+        return _maxValue;
+    }
+
+    /**
+     * @brief 获得中间pwm值
+     * @return 中间pwm值
+     */
+    int get_pwm_mid()
+    {
+        return _midValue;
+    }
+
+    /**
+     * @brief 获得最小pwm值
+     * @return 最小pwm值
+     */
+    int get_pwm_min()
+    {
+        return _minValue;
     }
     
 private:
     HW_PWM _pwm;
-    int _onValue, _releaseValue, _offValue;
+    int _nowValue, _minValue, _midValue, _maxValue;
 };
 
 #endif // __HW_SERVO_HPP__
