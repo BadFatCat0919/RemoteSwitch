@@ -8,6 +8,7 @@
 #ifndef __APP_TASK_H__
 #define __APP_TASK_H__
 
-void task_keyScan(void *pvParameters);
+void task_key_scan(void *pvParameters);
+void task_servo_control(void *pvParameters);
 
 #endif // __APP_TASK_H__
