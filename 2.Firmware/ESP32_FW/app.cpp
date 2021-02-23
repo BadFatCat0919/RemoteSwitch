@@ -19,7 +19,33 @@ int app_init(void)
 {
 	int ret = ERROR_NONE;
 
-	xTaskCreatePinnedToCore(task_keyScan, "key scan", 2048, NULL, 1, NULL, APP_CPU_NUM);
+	ret = xTaskCreatePinnedToCore(
+		task_key_scan,
+		"key scan",
+		2048,
+		NULL,
+		configMAX_PRIORITIES - 1, // 优先级设为最大优先级，使按键扫描尽量不受其他任务影响
+		NULL,
+		APP_CPU_NUM
+	);
+	if(ret != ERROR_NONE)
+	{
+		LOG_E(ERROR, "task_key_scan creat fail! return value = %d!\r\n", ret);
+	}
+
+	xTaskCreatePinnedToCore(
+		task_servo_control,
+		"servo control",
+		2048,
+		NULL,
+		1,
+		NULL,
+		APP_CPU_NUM
+	);
+	if(ret != ERROR_NONE)
+	{
+		LOG_E(ERROR, "task_servo_control creat fail! return value = %d!\r\n", ret);
+	}
 
 	return ret;
 }
