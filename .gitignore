@@ -1,3 +1,4 @@
 # 忽略AD产生的中间文件
 1.Hardware/RemoteSwitch/__Previews
 1.Hardware/RemoteSwitch/History
+1.Hardware/RemoteSwitch/*.PrjPcbStructure
