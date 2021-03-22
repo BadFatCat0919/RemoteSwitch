@@ -20,6 +20,21 @@ int app_init(void)
 	int ret = ERROR_NONE;
 
 	ret = xTaskCreatePinnedToCore(
+		task_heartbeat,
+		"heartbeat",
+		1024,
+		NULL,
+		1,
+		NULL,
+		APP_CPU_NUM
+	);
+	if(ret != 1)
+	{
+		LOG_E(ERROR, "task_heartbeat creat fail! return value = %d!\r\n", ret);
+	}
+
+
+	ret = xTaskCreatePinnedToCore(
 		task_key_scan,
 		"key scan",
 		2048,
@@ -28,7 +43,7 @@ int app_init(void)
 		NULL,
 		APP_CPU_NUM
 	);
-	if(ret != ERROR_NONE)
+	if(ret != 1)
 	{
 		LOG_E(ERROR, "task_key_scan creat fail! return value = %d!\r\n", ret);
 	}
@@ -42,10 +57,10 @@ int app_init(void)
 		NULL,
 		APP_CPU_NUM
 	);
-	if(ret != ERROR_NONE)
+	if(ret != 1)
 	{
 		LOG_E(ERROR, "task_servo_control creat fail! return value = %d!\r\n", ret);
 	}
 
-	return ret;
+	return !ret;
 }

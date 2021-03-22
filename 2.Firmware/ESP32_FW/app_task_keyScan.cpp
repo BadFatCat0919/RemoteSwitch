@@ -22,7 +22,7 @@ void task_key_scan(void *pvParameters)
 
     for (;;)
     {
-        keyScan();
+        // keyScan();
         vTaskDelay(50);
     }
 }
@@ -34,7 +34,7 @@ static void keyScan(void)
 {
     if(Key_Left.scan())
     {
-        LOG_D("Key_Board is pressed.\r\n");
+        LOG_D("Key_Left is pressed.\r\n");
         LED_Red.on();
         while(Key_Left.scan())
         {
@@ -43,7 +43,7 @@ static void keyScan(void)
     }
     if(Key_OK.scan())
     {
-        LOG_D("Key_Board is pressed.\r\n");
+        LOG_D("Key_OK is pressed.\r\n");
         LED_Green.on();
         while(Key_OK.scan())
         {
@@ -52,12 +52,12 @@ static void keyScan(void)
     }
     if(Key_Right.scan())
     {
-        LOG_D("Key_Board is pressed.\r\n");
+        LOG_D("Key_Right is pressed.\r\n");
         LED_Blue.on();
         while(Key_Right.scan())
         {
             vTaskDelay(50);
         }
-        OTA_enter_update_status();
+        // OTA_enter_update_status();
     }
 }

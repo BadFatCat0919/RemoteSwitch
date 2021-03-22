@@ -20,14 +20,51 @@ int hardware_init(void)
 {
     int ret = ERROR_NONE;
     
-    LED_Red.init();
-    LED_Green.init();
-    LED_Blue.init();
-    Key_Left.init();
-    Key_OK.init();
-    Key_Right.init();
-    Servo_Left.init();
-    Servo_Right.init();
+    do{
+        if(ret = LED_Red.init())
+        {
+            LOG_E(ret, "LED_Red init failed!\r\n");
+            break;
+        }
+        if(ret = LED_Green.init())
+        {
+            LOG_E(ret, "LED_Green init failed!\r\n");
+            break;
+        }
+        if(ret = LED_Blue.init())
+        {
+            LOG_E(ret, "LED_Blue init failed!\r\n");
+            break;
+        }
+        if(ret = Key_Left.init())
+        {
+            LOG_E(ret, "Key_Left init failed!\r\n");
+            break;
+        }
+        if(ret = Key_OK.init())
+        {
+            LOG_E(ret, "Key_OK init failed!\r\n");
+            break;
+        }
+        if(ret = Key_Right.init())
+        {
+            LOG_E(ret, "Key_Right init failed!\r\n");
+            break;
+        }
+        if(ret = Servo_Left.init())
+        {
+            LOG_E(ret, "Servo_Left init failed!\r\n");
+            break;
+        }
+        if(ret = Servo_Right.init())
+        {
+            LOG_E(ret, "Servo_Right init failed!\r\n");
+            break;
+        }
+        LED_Red.on();
+        LED_Green.on();
+        LED_Blue.on();
+    }while(0);
 
     return ret;
 }

@@ -32,9 +32,9 @@ void task_servo_control(void *pvParameters)
 
     for (;;)
     {
-        static ServoState leftServoState, rightServoState;
-        servo_control_statemachine(leftServoState, Servo_Left);
-        servo_control_statemachine(rightServoState, Servo_Right);
+        // static ServoState leftServoState, rightServoState;
+        // servo_control_statemachine(leftServoState, Servo_Left);
+        // servo_control_statemachine(rightServoState, Servo_Right);
         vTaskDelay(50);
     }
 }

@@ -19,31 +19,48 @@ void setup()
 
     int ret = ERROR_NONE;
 
-    if(ret = base_init())
-    {
-        LOG_E(ret, "base init failed!\r\n");
-    }
+    do{
+        if(ret = base_init())
+        {
+            LOG_E(ret, "base init failed!\r\n");
+            break;
+        }
 
-    LOG_D("init hardware...\r");
-    if(ret = hardware_init())
-    {
-        LOG_E(ret, "hardware init failed!\r\n");
-    }
-    LOG_D("hardware init succeed.\r\n");
+        LOG_D("init hardware...\r");
+        if(ret = hardware_init())
+        {
+            LOG_E(ret, "hardware init failed!\r\n");
+            break;
+        }
+        LOG_D("hardware init succeed.\r\n");
 
-    LOG_D("init firmware...\r");
-    if(ret = firmware_init())
+        LOG_D("init firmware...\r");
+        if(ret = firmware_init())
+        {
+            LOG_E(ret, "firmware init failed!\r\n");
+            break;
+        }
+        LOG_D("firmware init succeed.\r\n");
+        
+        LOG_D("init app...\r");
+        if(ret = app_init())
+        {
+            LOG_E(ret, "app init failed!\r\n");
+            break;
+        }
+        LOG_D("app init succeed.\r\n");
+    }while(0);
+
+    if(ERROR_NONE == ret)
     {
-        LOG_E(ret, "firmware init failed!\r\n");
+        LOG_D("system init succeed.\r\n");
     }
-    LOG_D("firmware init succeed.\r\n");
-    
-    LOG_D("init app...\r");
-    if(ret = app_init())
+    else
     {
         LOG_E(ret, "app init failed!\r\n");
+        LOG_D("restarting...\r\n");
+        ESP.restart();
     }
-    LOG_D("app init succeed.\r\n");
 }
 
 /**
