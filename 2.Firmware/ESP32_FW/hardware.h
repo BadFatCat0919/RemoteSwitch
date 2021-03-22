@@ -13,8 +13,8 @@
 #include "hw_touch.hpp"
 #include "hw_servo.hpp"
 
-extern HW_LED LED_Board;
-extern HW_Key Key_Board;
+extern HW_LED LED_Red, LED_Green, LED_Blue;
+extern HW_Key Key_Left, Key_OK, Key_Right;
 extern HW_Servo Servo_Left, Servo_Right;
 
 int hardware_init(void);

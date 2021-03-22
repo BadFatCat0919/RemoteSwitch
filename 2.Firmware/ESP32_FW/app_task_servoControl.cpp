@@ -10,8 +10,6 @@
 #include "hardware.h"
 #include "firmware.h"
 
-static void servo_control_statemachine(void);
-
 typedef enum{
     INIT    = 0,
     ATTACH  = 1,
@@ -21,6 +19,8 @@ typedef enum{
     OFF     = 5,
     TEST    = 6,
 }ServoState;
+
+static void servo_control_statemachine(ServoState &state, HW_Servo &servo);
 
 /**
  * @brief 舵机控制任务

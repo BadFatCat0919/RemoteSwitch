@@ -32,11 +32,29 @@ void task_key_scan(void *pvParameters)
  */
 static void keyScan(void)
 {
-    if(Key_Board.scan())
+    if(Key_Left.scan())
     {
         LOG_D("Key_Board is pressed.\r\n");
-        LED_Board.on();
-        while(Key_Board.scan())
+        LED_Red.on();
+        while(Key_Left.scan())
+        {
+            vTaskDelay(50);
+        }
+    }
+    if(Key_OK.scan())
+    {
+        LOG_D("Key_Board is pressed.\r\n");
+        LED_Green.on();
+        while(Key_OK.scan())
+        {
+            vTaskDelay(50);
+        }
+    }
+    if(Key_Right.scan())
+    {
+        LOG_D("Key_Board is pressed.\r\n");
+        LED_Blue.on();
+        while(Key_Right.scan())
         {
             vTaskDelay(50);
         }

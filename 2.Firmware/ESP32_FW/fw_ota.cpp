@@ -43,21 +43,22 @@ int OTA_update_init(void)
         ArduinoOTA
         .onStart([]() {
             LOG_D("start OTA update...\r");
-            LED_Board.off();
-        })
-        .onEnd([]() {
-            LOG_D("OTA update finish.\r\n");
-            LED_Board.on();
+            LED_Blue.on();
         })
         .onProgress([](unsigned int progress, unsigned int total) {
             LOG_D("Progress: %u%%...  \r", (progress / (total / 100)));
             if(!(progress % 100))
             {
-                LED_Board.reverse();
+                LED_Green.reverse();
             }
+        })
+        .onEnd([]() {
+            LOG_D("OTA update finish.\r\n");
+            LED_Green.on();
         })
         .onError([](ota_error_t error) {
             LOG_E(ERROR, "update failed!\r\n");
+            LED_Red.on();
             OTA_enter_update_status();
         });
 
@@ -97,19 +98,6 @@ void OTA_update(void)
     LOG_D("OTA update ready.\r\n");
     while(true)
     {
-        LED_Board.on();
         ArduinoOTA.handle();
-        
-        if(Key_Board.scan())
-        {
-            LOG_D("Key_Board is pressed.\r\n");
-            LED_Board.off();
-            while(Key_Board.scan())
-            {
-                vTaskDelay(50);
-            }
-            LOG_D("restart and quit OTA update mode...\r\n");
-            ESP.restart();
-        }
     }
 }
