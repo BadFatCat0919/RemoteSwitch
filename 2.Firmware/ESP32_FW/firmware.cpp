@@ -25,6 +25,7 @@ int firmware_init(void)
 
         if(data_getUpdateFlag())
         {
+            LOG_D("init OTA update...\r\n");
             if(ret = OTA_update_init())
             {
                 LOG_E(ret, "OTA update init failed!\r\n");
